@@ -107,7 +107,7 @@
       lien: lien,
       lignes: [
         "Bonjour " + rdv.client.prenom + ",",
-        "Votre rendez-vous est confirmé le " + dateLongue(rdv.debut) + " à " + rdv.debut.slice(11, 16).replace(":", " h ") + ".",
+        "Votre rendez-vous est confirmé le " + dateLongue(rdv.debut) + " à " + (window.EMN_HORAIRES ? window.EMN_HORAIRES.formatHeure(rdv.debut.slice(11, 16)) : rdv.debut.slice(11, 16)) + ".",
         "Prestations : " + rdv.prestations.map(function (p) { return p.nom; }).join(" + ") + " (" + rdv.totalTexte + ", " + rdv.dureeTexte + ").",
         "Paiement sur place : espèces de préférence, ou PayPal.",
         "Adresse : " + (cfg.adresse || {}).rue + ", " + (cfg.adresse || {}).codePostal + " " + (cfg.adresse || {}).ville + ". " + (cfg.adresse || {}).acces,

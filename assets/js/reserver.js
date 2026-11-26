@@ -29,7 +29,8 @@
     var b = document.createElement("p");
     b.className = "demo-ribbon";
     b.innerHTML = "Version de démonstration · aucune réservation réelle";
-    document.body.appendChild(b);
+    var box = document.querySelector(".booking .container");
+    box.insertBefore(b, box.firstChild);
   }
 
   /* ---------- Outils ---------- */
@@ -43,7 +44,7 @@
   function choisies() { return st.ids.map(function (id) { return st.index[id]; }).filter(Boolean); }
   function totaux() { return T.total(choisies()); }
   function sauverSelection() { try { sessionStorage.setItem(SELECTION, JSON.stringify(st.ids)); } catch (e) { /* */ } }
-  function heureTexte(h) { return h.replace(":", " h "); }
+  function heureTexte(h) { return window.EMN_HORAIRES ? window.EMN_HORAIRES.formatHeure(h) : h; }
   function moisTexte(ym) { return T.MOIS[+ym.slice(5, 7) - 1] + " " + ym.slice(0, 4); }
 
   /* ---------- Progression & barre récapitulative ---------- */

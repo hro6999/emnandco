@@ -16,10 +16,11 @@
   if (S.mode === "demo") {
     var b = document.createElement("p"); b.className = "demo-ribbon";
     b.textContent = "Version de démonstration · aucune réservation réelle";
-    document.body.appendChild(b);
+    var box = document.querySelector(".booking .container");
+    box.insertBefore(b, box.firstChild);
   }
 
-  function heure(dt) { return dt.slice(11, 16).replace(":", " h "); }
+  function heure(dt) { return window.EMN_HORAIRES ? window.EMN_HORAIRES.formatHeure(dt.slice(11, 16)) : dt.slice(11, 16); }
   function modifiable() {
     var limite = C.ajouterMinutes(C.maintenantParis(), (reglages ? reglages.annulationHeures : 24) * 60);
     return rdv.statut === "confirme" && rdv.debut >= limite;

@@ -19,7 +19,8 @@
   if (S.mode === "demo") {
     var b = document.createElement("p"); b.className = "demo-ribbon";
     b.textContent = "Version de démonstration";
-    document.body.appendChild(b);
+    var box = document.querySelector(".pro-main .container");
+    box.insertBefore(b, box.firstChild);
   }
 
   function lundi(d) { return C.ajouterJours(d, -C.jourSemaine(d)); }
