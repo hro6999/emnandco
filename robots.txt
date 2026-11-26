@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hro6999.github.io/emnandco/sitemap.xml
